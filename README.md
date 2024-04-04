@@ -1,5 +1,5 @@
 # Ex.05 Design a Website for Server Side Processing
-## Date:
+## Date:04.04.2024
 
 ## AIM:
 To design a website to find surface area of a Right Cylinder in server side.
@@ -38,7 +38,7 @@ math.html
 <head>
 <meta charset='utf-8'>
 <meta http-equiv='X-UA-Compatible' content='IE=edge'>
-<title>Area of Surface</title>
+<title>SURFACE AREA OF RIGHT CYLINDER</title>
 <meta name='viewport' content='width=device-width, initial-scale=1'>
 <style type="text/css">
 body {
@@ -140,8 +140,7 @@ urlpatterns = [
 
 ## HOMEPAGE:
 
-![alt text](<Screenshot 2024-04-04 132004.png>)
-
+![alt text](<Screenshot 2024-04-04 143225.png>)
 
 ## RESULT:
 The program for performing server side processing is completed successfully.
