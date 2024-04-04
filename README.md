@@ -31,12 +31,120 @@ Publish the website in the given URL.
 
 ## PROGRAM :
 
+```
+math.html
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset='utf-8'>
+<meta http-equiv='X-UA-Compatible' content='IE=edge'>
+<title>Area of Surface</title>
+<meta name='viewport' content='width=device-width, initial-scale=1'>
+<style type="text/css">
+body {
+    background-color: rgb(29, 231, 49);
+}
+.edge {
+    width: 100%;
+    padding-top: 250px;
+    text-align: center;
+}
+.box {
+    display: inline-block;
+    border: thick dashed rgb(89, 9, 229);
+    width: 500px;
+    min-height: 300px;
+    font-size: 20px;
+    background-color:rgb(223, 13, 143);
+}
+.formelt {
+    color: black;
+    text-align: center;
+    margin-top: 7px;
+    margin-bottom: 6px;
+}
+h1 {
+    color: rgb(182, 234, 63);
+    padding-top: 20px;
+}
+</style>
+</head>
+<body>
+<div class="edge">
+    <div class="box">
+        <h1>SURFACE AREA OF RIGHT CYLINDER</h1>
+        <h3>S.V.SHADHANASHREE (212223230202)</h3>
+        <form method="POST">
+            {% csrf_token %}
+            <div class="formelt">
+                Radius: <input type="text" name="radius" value="{{r}}">m<br/>
+            </div>
+            <div class="formelt">
+                Height: <input type="text" name="height" value="{{h}}">m<br/>
+            </div>
+            <div class="formelt">
+                <input type="submit" value="Calculate"><br/>
+            </div>
+            <div class="formelt">
+                Area: <input type="text" name="area" value="{{area}}">m<sup>2</sup><br/>
+            </div>
+        </form>
+    </div>
+</div>
+</body>
+</html>
+```
+```
+views.py
+from django.shortcuts import render
+def squarearea(request):
+    context = {}
+    context['area'] = "0"
+    context['r'] = "0"
+    context['h'] = "0"
+    if request.method == 'POST':
+        print("POST method is used")
+        print('request.POST:', request.POST)
+        r = request.POST.get('radius', '0') 
+        h = request.POST.get('height', '0') 
+        print('radius =', r)
+        print('height =', h)
+        area = 2 * 3.14 * int(r) * int(h) + 2*3.14*int(r)*int(r)
+        context['area'] = area
+        context['r'] = r
+        context['h'] = h
+        print('Area =', area)
+    
+    return render(request, 'mathapp/math.html',context)
+```
+```
+urls.py
+from django.contrib import admin
+from django.urls import path
+from mathapp import views
+
+urlpatterns = [
+    path('admin/', admin.site.urls),
+    path('squarearea/',views.squarearea,name="squarearea"),
+    path('',views.squarearea,name="squarearea")
+]
+
+```
+
 
 ## SERVER SIDE PROCESSING:
 
 
+![alt text](<Screenshot 2024-04-04 132051.png>)
+
+
 ## HOMEPAGE:
+
+![alt text](<Screenshot 2024-04-04 132004.png>)
 
 
 ## RESULT:
 The program for performing server side processing is completed successfully.
+
+
+
